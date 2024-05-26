@@ -4,7 +4,7 @@
 
 This project aims to develop a machine learning model using Convolutional Neural Networks (CNN) to detect pneumonia from chest X-ray images. Pneumonia is a severe lung infection, and early detection is crucial for effective treatment. This project leverages the power of CNNs to automate the detection process, providing a reliable tool for healthcare professionals.
 
-![Pneumonia Detection](images/pneumonia_detection.jpg)
+![Pneumonia Detection](images/img1.jpg)
 
 ## Project Structure
 
@@ -23,34 +23,19 @@ Pneumonia-Disease-Detection-using-Machine-Learning-CNN/
 │       └── PNEUMONIA/
 │
 ├── models/
-│   ├── cnn_model.h5
+│   ├── model.json
 │   └── ...
 │
 ├── notebooks/
-│   ├── data_preprocessing.ipynb
-│   ├── model_training.ipynb
-│   └── model_evaluation.ipynb
-│
-├── scripts/
-│   ├── train_model.py
-│   ├── evaluate_model.py
-│   └── predict.py
-│
-├── images/
-│   ├── pneumonia_detection.jpg
-│   └── sample_chest_xray.png
-│
-├── README.md
-├── requirements.txt
-└── LICENSE
+│   ├── Pneumonia_Detection.ipynb
 ```
 
 ## Installation
 
 1. Clone the repository:
    ```
-   git clone https://github.com/bodiwael/Pneumonia-Disease-Detection-using-Machine-Learning-CNN.git
-   cd Pneumonia-Disease-Detection-using-Machine-Learning-CNN
+   git clone https://github.com/bodiwael/Pneumonia-Disease-Detection-using-Machine-Learning-CNN-.git
+   cd Pneumonia-Disease-Detection-using-Machine-Learning-CNN-
    ```
 
 2. Create a virtual environment and activate it:
@@ -70,7 +55,7 @@ The dataset used in this project consists of chest X-ray images categorized into
 
 After downloading, organize the dataset as shown in the project structure.
 
-![Sample Chest X-ray](images/sample_chest_xray.png)
+![Sample Chest X-ray](assets/normal.jpeg)
 
 ## Training the Model
 
@@ -123,7 +108,4 @@ We thank the contributors of the chest X-ray pneumonia dataset and the open-sour
 ---
 
 Feel free to reach out if you have any questions or suggestions!
-
-![Pneumonia Detection](images/pneumonia_detection.jpg)
-
 ---
