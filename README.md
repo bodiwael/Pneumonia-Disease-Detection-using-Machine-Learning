@@ -4,31 +4,7 @@
 
 This project aims to develop a machine learning model using Convolutional Neural Networks (CNN) to detect pneumonia from chest X-ray images. Pneumonia is a severe lung infection, and early detection is crucial for effective treatment. This project leverages the power of CNNs to automate the detection process, providing a reliable tool for healthcare professionals.
 
-![Pneumonia Detection](assets/img1.jpg)
-
-## Project Structure
-
-```
-Pneumonia-Disease-Detection-using-Machine-Learning-CNN/
-│
-├── data/
-│   ├── train/
-│   │   ├── NORMAL/
-│   │   └── PNEUMONIA/
-│   ├── val/
-│   │   ├── NORMAL/
-│   │   └── PNEUMONIA/
-│   └── test/
-│       ├── NORMAL/
-│       └── PNEUMONIA/
-│
-├── models/
-│   ├── model.json
-│   └── ...
-│
-├── notebooks/
-│   ├── Pneumonia_Detection.ipynb
-```
+![Pneumonia Detection](assets/img1.png)
 
 ## Installation
 
