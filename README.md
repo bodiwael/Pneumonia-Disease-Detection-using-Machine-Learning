@@ -84,7 +84,7 @@ We thank the contributors of the chest X-ray pneumonia dataset and the open-sour
 ---
 
 ### Feel free to reach out if you have any questions or suggestions!
-### E-Mail : bodiwael999@gmail.com
-### Phone : +201010331884
-### LinkedIn : https://www.linkedin.com/in/abdelrahman-wael-ammar/
+#### E-Mail : bodiwael999@gmail.com
+#### Phone : +201010331884
+#### LinkedIn : https://www.linkedin.com/in/abdelrahman-wael-ammar/
 ---
