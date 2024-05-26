@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>AI Breast Cancer Analyzer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Use the power of Machine Learning to automatically analyze X-Ray image patches.">
+
+
+<!--Code to prevent the browser from caching the page-->
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="0"/>
+
+
+
+
+
+<!--CSS Stylesheets-->
+<link rel="stylesheet" href="css/w3.css">
+<link rel="stylesheet" href="css/histo.css">
+
+<!--Link to Font Awesome icons-->
+<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.4.2/css/all.css' integrity='sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns' crossorigin='anonymous'>
+
+<!--Link to fonts from google fonts-->
+<link href="https://fonts.googleapis.com/css?family=Oswald:300" rel="stylesheet">
+
+
+<link rel="shortcut icon" type="image/png" href="robotfavicon.png">
+
+
+
+
+<style>
+html,body,h2,h3,h4 {font-family: Helvetica, sans-serif}
+</style>
+<script src=
+	"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+		</script>
+		<script src=
+	"https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js">
+		</script>
+		<script src=
+	"https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js">
+</script>	
+</head>
+
+
+<body id = "EMI" class="w3-pale-blue">
+
+
+
+<!-- w3-content defines a container for fixed size centered content,
+and is wrapped around the whole page content. -->
+<div class="w3-content card" style="max-width:900px">
+
+
+
+	<!-- 1. HOME PAGE TAB -->
+	<div class="tabbed w3-animate-opacity w3-white" id="home">
+
+		<div class="w3-center">
+			<h1 class="space-letters w3-text-purple"><b>AI Pneumonia Analyzer</b></h1>
+		</div>
+
+		<!-- Header -->
+		<div class="w3-center title adjust-fontcolor logo">
+			
+			<h5 class="space-letters w3-text-red">for X-Ray Image Patches</h5>
+			
+			<h5 class="space-letters tag-font w3-text-red"><b>powered by<br> Artificial Intelligence & Image Processing</b></h5>
+		</div>
+
+
+
+		<!-- Front page image -->
+		<!-- This image will be replaced once the js code runs. -->
+		<div class="w3-center">
+			<img id="selected-image" class="w3-round adjust-image" src="assets/default_image.jpeg" height="250" alt="Image for analysis"> 
+		</div> 
+
+		<div class="w3-center">
+			<div  class="progress-bar w3-text-teal space-letters">
+			<i class="fa fa-spinner fa-spin" style="font-size:24px"></i>
+			<p>Model is loading...</p></div>
+		</div>
+
+		<div class="w3-light-grey side-margin w3-opacity">
+			<div  id="myBar" class="w3-container w3-blue" style="height:5px;width:100%"></div>
+		</div>
+
+
+		<div class="w3-center w3-border add-margin side-margin w3-round w3-sand
+		text-color space-letters bottom-margin dont-break-out">
+				
+			<h5 class='new-font'>Report</h5>
+			<ol class='w3-left-align text-color' id='prediction-list'></ol>
+				
+		</div>
+
+		<!-- Button -->
+		<div id="btnn" class="w3-center padding">
+			
+			<button class="w3-btn w3-purple w3-round w3-margin-bottom adjust-spacing w3-hover-red btn-font w3-padding w3-space-letters w3-card-4" onclick="setTimeout(simulateClick.bind(null, 'image-selector'), 200)"><b>Diagonise Disease</b></button>
+			
+			<p class="w3-text-teal">Terms & Services</p>
+		</div> 
+
+		<div class='w3-padding'>
+			<p class='w3-round w3-margin w3-margin-bottom w3-text-teal'>Please Note: This project is a prototype, and we are not responsible for any issues.</p>
+		</div>
+
+		<div id="btnn" class="w3-center">
+
+			<input class="w3-btn w3-purple w3-round w3-margin-bottom adjust-spacing w3-hover-red btn-font w3-padding w3-space-letters w3-card-4" type="button" value="Export Report" onclick="convertHTMLtoPDF()">
+	
+		</div>
+
+		<div class='w3-padding'>
+			<p class='w3-round w3-margin w3-margin-bottom w3-text-teal'>Powered By : @Abdelrahman Wael Ammar</p>
+		</div>
+
+
+	</div><!--END OF HOME PAGE TAB-->
+
+	<div class="hide">
+		<button id='predict-button'>Predict</button>
+	</div>
+
+	<div class="hide">
+		<input id="image-selector" type="file" multiple>
+	</div>
+
+	<!--===================================-->
+
+
+		<!-- Load jQuery -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+
+		</script>
+		
+		<!-- Load TensorFlow.js -->
+		<!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.13.3/dist/tf.min.js"> 
+		</script>
+		 -->
+		
+		<!-- Load the Javascript code -->
+		<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.13.3/dist/tf.min.js"> 
+		</script>
+		
+		
+		<!-- Load the js files -->
+		<script src="jscript/target_classes.js"></script>
+		<script src="jscript/app_startup_code.js"></script>
+		<script src="jscript/app_batch_prediction_code.js"></script>
+		<script type="text/javascript">
+			function convertHTMLtoPDF() {
+				const { jsPDF } = window.jspdf;
+
+				let doc = new jsPDF('l', 'mm', [1500, 1400]);
+				let pdfjs = document.querySelector('#EMI');
+
+				doc.html(pdfjs, {
+					callback: function(doc) {
+						doc.save("Report_Pneumonia.pdf");
+					},
+					x: 12,
+					y: 12
+				});			 
+			}		 
+		</script>	
+		
+		
+	
+</div> <!-- w3-content -->
+
+
+
+</body>
+
+</html>
+
