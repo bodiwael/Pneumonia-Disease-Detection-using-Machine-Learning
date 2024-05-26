@@ -67,7 +67,7 @@ This will output the prediction result, indicating whether the input image is NO
 
 The trained CNN model achieved high accuracy on the test set, demonstrating its effectiveness in detecting pneumonia from chest X-ray images. Below is an example of the model's performance:
 
-![Model Performance](images/model_performance.png)
+![Model Performance](assets/img2.png)
 
 ## Conclusion
 
@@ -83,5 +83,8 @@ We thank the contributors of the chest X-ray pneumonia dataset and the open-sour
 
 ---
 
-Feel free to reach out if you have any questions or suggestions!
+### Feel free to reach out if you have any questions or suggestions!
+### E-Mail : bodiwael999@gmail.com
+### Phone : +201010331884
+### LinkedIn : https://www.linkedin.com/in/abdelrahman-wael-ammar/
 ---
