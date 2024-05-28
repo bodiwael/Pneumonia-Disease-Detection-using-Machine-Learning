@@ -14,8 +14,8 @@ Project aims to develop a machine learning model using Convolutional Neural Netw
 
 1. Clone the repository:
    ```
-   git clone https://github.com/bodiwael/Pneumonia-Disease-Detection-using-Machine-Learning-CNN-.git
-   cd Pneumonia-Disease-Detection-using-Machine-Learning-CNN-
+   git clone https://github.com/bodiwael/Pneumonia-Disease-Detection-using-Machine-Learning-CNN.git
+   cd Pneumonia-Disease-Detection-using-Machine-Learning-CNN
    ```
 
 2. Create a virtual environment and activate it:
